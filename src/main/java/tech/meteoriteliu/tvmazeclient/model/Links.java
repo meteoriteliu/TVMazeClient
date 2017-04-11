@@ -3,30 +3,15 @@ package tech.meteoriteliu.tvmazeclient.model;
 /**
  * Created by meteo on 2017/4/10.
  */
-public class Links {
+public abstract class Links {
 
-    private Self self;
-    private PreviousEpisode previousepisode;
-
-    private class Self {
+    protected class Link {
         private String href;
-    }
 
-    private class PreviousEpisode {
-        private String href;
-    }
-
-    public String getSelf() {
-        if (self != null) {
-            return self.href;
+        public String getHref() {
+            return href;
         }
-        return null;
     }
 
-    public String getPreviousEpisode() {
-        if (previousepisode != null) {
-            return previousepisode.href;
-        }
-        return null;
-    }
+
 }

@@ -25,7 +25,59 @@ public class Show {
     private Image image;
     private String summary;
     private long updated;
-    private Links _links;
+    private ShowLinks _links;
+
+    private ShowEmbed _embedded;
+
+    public class ShowEmbed {
+        private List<Cast> cast;
+        private Episode previousepisode;
+        private Episode nextepisode;
+        private List<Episode> episodes;
+
+        public List<Cast> getCast() {
+            return cast;
+        }
+
+        public Episode getPreviousepisode() {
+            return previousepisode;
+        }
+
+        public List<Episode> getEpisodes() {
+            return episodes;
+        }
+
+        public Episode getNextepisode() {
+            return nextepisode;
+        }
+    }
+
+    public class ShowLinks extends Links {
+        private Link self;
+        private Link previousepisode;
+        private Link nextepisode;
+
+        public String getSelf() {
+            if (self != null) {
+                return self.getHref();
+            }
+            return null;
+        }
+
+        public String getPreviousEpisode() {
+            if (previousepisode != null) {
+                return previousepisode.getHref();
+            }
+            return null;
+        }
+
+        public String getNextEpisode() {
+            if (nextepisode != null) {
+                return nextepisode.getHref();
+            }
+            return null;
+        }
+    }
 
     public int getId() {
         return id;
@@ -99,7 +151,11 @@ public class Show {
         return updated;
     }
 
-    public Links get_links() {
+    public ShowLinks get_links() {
         return _links;
+    }
+
+    public ShowEmbed get_embedded() {
+        return _embedded;
     }
 }
